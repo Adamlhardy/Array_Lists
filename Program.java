@@ -79,7 +79,12 @@ public class Program {
     
         MyLinkedList<String> myLinkedList = new MyLinkedList<String>();
         myLinkedList.AddFront("World!");
-        myLinkedList.AddFront("Hello");
+        // add a new node here
+        myLinkedList.AddFront(" Hello ");
+        myLinkedList.AddFront(" This is me");
+        myLinkedList.AddFront("Hi");
+        myLinkedList.Append("Dog");
+        System.out.println(myLinkedList.GetSize());
         System.out.println(myLinkedList);
     }   
 
