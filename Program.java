@@ -1,4 +1,4 @@
-package Array_Lists;
+//package Array_Lists;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,21 +8,21 @@ public class Program {
     public static void main(String[] args) {
         // int[] arr = {1, 3, 4};
         // int[] arr1 = new int[3];
-        
+        //
         // // System.out.println(Arrays.toString(arr));
         // // System.out.println(Arrays.toString(arr1));
-
+        //
         // ArrayList<Integer> arrList1 = new ArrayList<Integer>();
-        
+        //
         // arrList1.add(5);
         // arrList1.add(10);
-        
+        //
         // ArrayList<Integer> arrList = new ArrayList<Integer>(arrList1);
         // arrList.add(1);
         // arrList.add(3);
         // arrList.add(4);
         // // arrList.addAll(arrList1);
-
+        //
         // /*
         //  * Created an Array List. Demonstrated adding values to the list
         //  * and implemented a try/catch where I made further edits to the list and printed them to the console.
@@ -40,7 +40,7 @@ public class Program {
         // //myFirstList.Print();
         // myFirstList.AddAtIndex(900, 30);
         // myFirstList.Print();
-
+        //
         // try{
         //     System.out.println(myFirstList.Size());
         //     myFirstList.DeleteAtStart();
@@ -55,13 +55,13 @@ public class Program {
         // } catch(Exception exception){
         //     System.out.println(exception);
         // }
-        
+        //
         // myFirstList.ClearAll();
         // myFirstList.Print();
         // System.out.println(myFirstList.IsEmpty());
         // System.out.println(myFirstList.Size());
         // //System.out.println(myFirstList.GetElementAtIndex(59));
-    
+        //
         // /*
         //  * Created a second Array List. Demonstrated adding strings to the list
         //  * I then made edits to and deleted from the list and printed them to the console.
@@ -78,13 +78,25 @@ public class Program {
         // mySecondList.Print();
     
         MyLinkedList<String> myLinkedList = new MyLinkedList<String>();
-        myLinkedList.AddFront("World!");
+        myLinkedList.Append("World!");
         // add a new node here
-        myLinkedList.AddFront(" Hello ");
-        myLinkedList.AddFront(" This is me");
-        myLinkedList.AddFront("Hi");
+        myLinkedList.Append("Hello");
+        myLinkedList.Append("This is me");
+        myLinkedList.Append("Hi");
         myLinkedList.Append("Dog");
         System.out.println(myLinkedList.GetSize());
+        System.out.println(myLinkedList);
+        myLinkedList.Insert(1, "Leaf");
+        System.out.println(myLinkedList);
+        myLinkedList.DeleteFront();
+        System.out.println(myLinkedList);
+        myLinkedList.AddFront("Cat");
+        System.out.println(myLinkedList);
+        myLinkedList.AddFront("Gato");
+        System.out.println(myLinkedList);
+        myLinkedList.DeleteBack();
+        System.out.println(myLinkedList);
+        myLinkedList.DeleteNodeBasedOnValue("Hello");
         System.out.println(myLinkedList);
     }   
 

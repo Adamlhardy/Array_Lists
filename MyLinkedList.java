@@ -1,16 +1,16 @@
-package Array_Lists;
+//package Array_Lists;
 
 public class MyLinkedList<T> {
     private Node<T> head = null;
     private int size = 0;
 
     public void AddFront(T data) {
-        Node<T> newnNode = new Node<T>(data);
+        Node<T> newNode = new Node<T>(data);
         if(head == null){
-            head = newnNode;
+            head = newNode;
         } else {
-            newnNode.next = head;
-            head = newnNode;
+            newNode.next = head;
+            head = newNode;
         }
         size++;
     }
@@ -19,8 +19,12 @@ public class MyLinkedList<T> {
      * Adds a new node to the end of the LinkedList
      */
     public void Append(T data) {
-        Node<T> currentNode = head;
+        if(head == null){
+            AddFront(data);
+            return;
+        }
 
+        Node<T> currentNode = head;       
         while (currentNode.next != null) {
          currentNode = currentNode.next;   
         }
@@ -32,29 +36,81 @@ public class MyLinkedList<T> {
     }
 
     // 1
-    public void Insert(int index) {
+    public void Insert(int index, T data) {
         Node<T> currentNode = head;
         int currentIndex = 0;
 
-        for(int i = 0; i < index; i++) {
-
+        //Go to the element prior to where we want to insert our element
+        for(int i = 0; i < index - 1; i++) {
+            currentNode = currentNode.next;
         }
+
+        Node<T> newNode = new Node<T>(data, currentNode.next);
+        currentNode.next = newNode;
+        size++;
     }
 
     @Override
     public String toString() {
         Node<T> currentNode = head;
-        String returString = "";
+        String returnString = "";
 
         while(currentNode != null){
-            returString += currentNode.data.toString();
+            returnString += currentNode.data.toString();
             currentNode = currentNode.next;
         }
 
-        return returString;
+        return returnString;
+    }
+    
+    public void DeleteFront(){
+        head = head.next;
+        size--;
     }
 
+    public void DeleteBack() {
+        Node<T> currentNode = head;
+
+        while(currentNode.next.next != null) {
+            currentNode = currentNode.next;
+        }
+        //System.out.println(currentNode.data);
+        size--;
+    }
+
+    /**
+     * This will find the first instance of matching data and delete it
+     * @param data the data of type T whose node we want to delete
+     */
+    public void DeleteNodeBasedOnValue(T data){
+        if(head == null) {
+            return;
+        }
+    
+        Node<T> currentNode = head;
+        size--;
+    
+
+        if(currentNode.data == data) {
+            DeleteFront();
+            return;
+        }
+
+        while(currentNode.next.data != data) {
+            currentNode = currentNode.next;
+        }
+
+        System.out.println(currentNode.data);
+        currentNode.next = currentNode.next.next;
+        size--;
+    }
     public int GetSize() {
         return size;
     }
+
+
+    public boolean isEmpty() {
+        return head == null;
+    }
+
 }
